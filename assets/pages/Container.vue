@@ -12,17 +12,26 @@
       </div>
     </div>
 
-    <ul class="events">
-      <li v-for="item in filtered" class="event" :key="item.key">
-        <span class="date">{{ item.date | relativeTime }}</span>
-        <span class="text" v-html="colorize(item.message)"></span>
-      </li>
-    </ul>
+    <splitpanes vertical>
+      <pane>
+        <ul class="events">
+          <li v-for="item in filtered" class="event" :key="item.key">
+            <span class="date">{{ item.date | relativeTime }}</span>
+            <span class="text" v-html="colorize(item.message)"></span>
+          </li>
+        </ul>
+      </pane>
+      <pane>
+        This is a test
+      </pane>
+    </splitpanes>
+
     <scrollbar-notification :messages="messages"></scrollbar-notification>
   </div>
 </template>
 
 <script>
+import { Splitpanes, Pane } from "splitpanes";
 import { formatRelative } from "date-fns";
 import AnsiConvertor from "ansi-to-html";
 import ScrollbarNotification from "../components/ScrollbarNotification";
@@ -47,7 +56,9 @@ export default {
   props: ["id", "name"],
   name: "Container",
   components: {
-    ScrollbarNotification
+    ScrollbarNotification,
+    Splitpanes,
+    Pane
   },
   data() {
     return {

@@ -9,7 +9,7 @@
       >
         <span></span> <span></span> <span></span>
       </a>
-      <div class="columns is-marginless">
+      <div class="columns is-gapless">
         <div class="column">
           <h1 class="title has-text-warning is-marginless">Dozzle</h1>
         </div>
@@ -17,7 +17,7 @@
           <router-link
             :to="{ name: 'settings' }"
             active-class="is-active"
-            class="button is-small is-primary is-rounded is-inverted is-outlined "
+            class="button is-small is-primary is-rounded is-inverted is-outlined has-no-border"
           >
             <span class="icon"><i class="fas fa-cog"></i></span>
             <span>Settings</span>
@@ -125,5 +125,9 @@ aside {
 
 .burger.is-white {
   color: #fff;
+}
+
+.button.has-no-border {
+  border-color: transparent !important;
 }
 </style>
